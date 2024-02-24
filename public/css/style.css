@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* header */
+header {
+    background: #3C4767;
+}
+
+/* menu */
+#menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-nav {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: left;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 15px;
+    list-style: none;
+}
+
+.main-nav li {
+    margin-left: 15px;
+}
+
+.main-nav a {
+    color: #6C6C6C;
+}
+
+.main-nav a:hover {
+    color: orangered;
+}
+
+/* main content */
+#row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#container {
+    flex: 0 0 80%;
+}
+
+#side-bar {
+    flex: 0 0 19%;
+    border-left: 2px solid #6C6C6C;
+    background-color: aquamarine;
+
+}
+
+.user-icon {
+    display: inline;
+}
+
+/* btn */
+.btn {
+    background: transparent;
+}
+
+/* post */
+.form-group {
+    height: auto;
+    width: 90%;
+}
+
+.newposts {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    border: none;
+}
+
+/* postボタン */
+button {
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+button img {
+    display: block;
+}
+
+/* timeline */
+table {
+    width: 100%;
+}
+
+tr {
+    height: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+td {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    vertical-align: middle;
+    border-bottom: 1px solid #6C6C6C;
+}
+
+td img {
+    vertical-align: center;
+}
+
+td.username {
+    font-size: 12px;
+    vertical-align: text-top;
+}
+
+td.timestamp {
+    font-size: 12px;
+    text-align: right;
+    vertical-align: text-top;
+}
+
+/* delete */
+.btn-danger img {
+    width: 55px;
+    height: 55px;
+    display: inline-block;
+    background: url(/images/trash.png);
+}
+
+a.btn-danger:hover img {
+    content: url(/images/trash_h.png);
+}
