@@ -1,3 +1,4 @@
+<!-- 誤り -->
 <?php
 
 use Illuminate\Database\Migrations\Migration;
