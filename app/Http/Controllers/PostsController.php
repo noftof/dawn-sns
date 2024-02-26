@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
-    //
+    //timeline表示
     public function index(){
         $posts = DB::table('posts')
                     ->orderBy('created_at','desc')
@@ -25,6 +25,24 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+    // 編集機能
+    public function editform($id)
+    {
+        $post = DB::table('posts')
+            ->where('id',$id)
+            ->first();
+            return view('posts.edit',['posts'=>$posts]);
+    }
+    public function edit(Request $request)
+    {
+        $id= $request->input('id');
+        $up_post = $request->input('upPost');
+        DB::table('posts')
+            ->where('id',$id)
+            ->update(['posts' => $up_post]);
+            return redirect('/top');
+    }
+    // delete機能
     public function delete($id)
     {
     DB::table('posts')

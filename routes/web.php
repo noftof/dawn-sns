@@ -41,4 +41,8 @@ Route::get('/follower-list','PostsController@index');
 
 // 投稿内容を同一ページに表示するため
 Route::post('/post/create','PostsController@create');
+// 編集機能
+Route::get('/post/{id}/edit','PostsController@editform');
+Route::post('/post/edit','PostsController@edit');
+// delete機能
 Route::get('/post/{id}/delete','PostsController@delete');
