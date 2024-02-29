@@ -11,17 +11,38 @@
     {!! Form::close() !!}
 @foreach ($posts as $post)
 <tr>
-  <td><a class="btn btn-primary" href=""><img src="" alt="アイコン"></a></td>
+  <td><a class="btn" href=""><img src="" alt="アイコン"></a></td>
   <!-- <td>{{ $post ->user_id}}</td> -->
   <td class="username">〇〇</td>
   <td class="timeline-post">{{ $post ->posts}}</td>
   <td class="timestamp">{{ $post ->created_at}}</td>
-  <td><a class="btn btn-primary" href="/post/{{ $post->id}}/edit"><img src="images/edit.png" alt="編集"></a></td>
+
+<!-- 編集ボタン -->
+  <td>
+    <button class="btn edit-btn" data-toggle="modal" data-target="#editModal" data-postid="{{ $post->id }}"><img src="images/edit.png" alt="編集"></button>
+  </td>
+
   <td><a class="btn-danger" href="/post/{{ $post->id}}/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')">
   <img src="images/trash.png" alt="削除">
 </a></td>
 </tr>
 @endforeach
 </table>
+<!-- モーダル -->
+<div class="modal-main js-modal" id="modal">
+  <div class="modal-inner">
+    <div class="inner-content">
+    <!-- 編集フォーム -->
+    {!! Form::open(['url'=> '/post/edit','id'=>'editForm']) !!}
+    <div class="form-group">
+    {!! Form::hidden('id', $post->id) !!}
+    {!! Form::input('text', 'upPost', $post->posts, ['required', 'class' => 'uppost', 'autocomplete' => 'off']) !!}
+    </div>
+  <button type="submit" class="postbtn"><img src="images/edit.png" alt="Postする"></button>
+    {!! Form::close() !!}
+    <!-- 編集フォーム終わり -->
+  </div>
+</div>
+<!-- モーダル終わり -->
 
 @endsection

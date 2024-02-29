@@ -141,3 +141,31 @@ td.timestamp {
 a.btn-danger:hover img {
     content: url(/images/trash_h.png);
 }
+
+/* モーダル  */
+.modal-main {
+    display: none;
+    ;
+}
+
+.modal-inner {
+    overflow-y: scroll;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    color: #666666;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.inner-content {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    max-width: 1024px;
+}
