@@ -14,7 +14,6 @@ class PostsController extends Controller
                     ->join('users','posts.user_id','users.id')
                     ->orderBy('posts.created_at','desc')
                     ->get();
-                    // dd($posts);
         return view('posts.index',['posts'=>$posts]);
     }
     public function create(Request $request)
