@@ -11,9 +11,10 @@ class PostsController extends Controller
     //timeline表示
     public function index(){
         $posts = DB::table('posts')
-                    ->join('users','posts.user_id','users.id')
+                    ->join('users','posts.user_id','users.id','username')
                     ->orderBy('posts.created_at','desc')
                     ->get();
+                    // dd($posts);
         return view('posts.index',['posts'=>$posts]);
     }
     public function create(Request $request)

@@ -33,8 +33,8 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
-
-Route::get('/search','UsersController@search');
+// 検索ページ
+Route::get('/search','UsersController@search')->name('users.search');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');

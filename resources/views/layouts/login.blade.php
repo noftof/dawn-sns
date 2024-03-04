@@ -20,6 +20,7 @@
     <!--OGPタグ/twitterカード-->
     <!-- jQuery設定 -->
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js\script.js"></script>
 </head>
 <body>
     <header>
