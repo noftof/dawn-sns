@@ -14,7 +14,11 @@
 <h3>検索結果</h3>
 @if(isset($users) && $users->count() > 0)
   @foreach($users as $user)
-    <p>{{ $user->username }}</p>
+    <ul>
+      <li><a class="btn" href="/profile">
+      <img src="images/{{ $user-> images }}" alt="アイコン"></a>
+      {{ $user->username }}</li>
+    </ul>
     @endforeach
   @else
     <p>検索結果がありません</p>

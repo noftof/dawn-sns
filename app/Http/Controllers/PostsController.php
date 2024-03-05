@@ -30,7 +30,7 @@ class PostsController extends Controller
     // 編集機能
     public function editform($id)
     {
-        $post = DB::table('posts')
+        $posts = DB::table('posts')
             ->where('id',$id)
             ->first();
             return view('posts.edit',['posts'=>$posts]);

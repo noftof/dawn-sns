@@ -13,7 +13,7 @@
 <tr>
   <td><a class="btn" href="/profile"><img src="images/{{ $post -> images }}" alt="アイコン"></a></td>
   <!-- <td>{{ $post ->user_id}}</td> -->
-  <td class="username">{{ Auth::user() ->username}}</td>
+  <td class="username">{{ $post ->username}}</td>
   <td class="timeline-post">{{ $post ->posts}}</td>
   <td class="timestamp">{{ $post ->created_at}}</td>
 
