@@ -19,7 +19,7 @@
 
 <!-- 編集ボタン -->
   <td>
-    <button class="modalopen" data-target="editModal" data-postid="{{ $post->id }}">
+    <button class="modalopen" data-target="editModal{{ $post-> id}}" data-postid="{{ $post->id }}">
       <img src="images/edit.png" alt="編集">
     </button>
   </td>
@@ -29,17 +29,15 @@
   <img src="images/trash.png" alt="削除">
 </a></td>
 </tr>
-@endforeach
-</table>
-  <!-- モーダル -->
-<div  id="editModal" class="modal">
+ <!-- モーダル -->
+<div  id="editModal{{ $post-> id}}" class="modal">
   <div class="modal-content">
     <!-- 編集フォーム -->
     {!! Form::open(['url'=> '/post/edit','id'=>'editForm']) !!}
     @csrf
     <div class="form-group">
-    {!! Form::hidden('id', null, ['id' => 'postId']) !!}
-    {!! Form::text('upPost', null, ['required', 'class' => 'uppost', 'autocomplete' => 'off', 'id'=> 'upPost']) !!}
+    {!! Form::hidden('id', $post->id, ['id' => 'postId']) !!}
+    {!! Form::text('upPost', $post->posts, ['required', 'class' => 'uppost', 'autocomplete' => 'off', 'id'=> 'upPost']) !!}
     </div>
   <button type="submit" class="postbtn modalClose"><img src="images/post.png" alt="更新"></button>
     {!! Form::close() !!}
@@ -47,4 +45,7 @@
   </div>
 </div>
 <!-- モーダル終わり -->
+@endforeach
+</table>
+
 @endsection

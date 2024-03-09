@@ -8,11 +8,15 @@ $(function () {
       return false;
     });
   });
-  $('.modalClose').on('click', function () {
-    $('.modal').fadeOut();
-    return false;
-  });
+  // $('.modalClose').on('click', function () {
+  //   $('.modal').fadeOut();
+  //   return false;
+  // });
 });
+
+
+
+
 // $(function () {
 //   $('.modalopen').on('click', function () {
 //     var postId = $(this).data('postid'); // data-postid属性からポストIDを取得

@@ -12,9 +12,10 @@ class PostsController extends Controller
     public function index(){
         $posts = DB::table('posts')
                     ->join('users','posts.user_id','users.id','username')
+                    ->select('users.username','users.images','posts.*')
                     ->orderBy('posts.created_at','desc')
                     ->get();
-                    dd($posts);
+                    // dd($posts);
         return view('posts.index',['posts'=>$posts]);
     }
     public function create(Request $request)
@@ -39,6 +40,7 @@ class PostsController extends Controller
     {
         $id= $request->input('id');
         $up_post = $request->input('upPost');
+        // dd($id);
         DB::table('posts')
             ->where('id',$id)
             ->update(['posts' => $up_post]);
@@ -47,6 +49,7 @@ class PostsController extends Controller
     // delete機能
     public function delete($id)
     {
+        // dd($id);
     DB::table('posts')
         ->where('id',$id)
         ->delete();
