@@ -36,8 +36,8 @@ Route::get('/profile','UsersController@profile');
 // 検索ページ
 Route::get('/search','UsersController@search')->name('users.search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/followList','FollowsController@followList');
+Route::get('/followerList','FollowsController@followerList');
 
 // 投稿内容を同一ページに表示するため
 Route::post('/post/create','PostsController@create');
