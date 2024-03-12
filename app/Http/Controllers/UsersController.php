@@ -20,7 +20,7 @@ class UsersController extends Controller
         ->where('username','LIKE',"%$search%")
         ->get();
         // dd($users);
-        return view('users.search',['users' => $users]);
+        return view('users.search',['users' => $users,'searchWord' => $search]);
     }
 
 }
