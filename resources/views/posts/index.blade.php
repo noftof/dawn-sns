@@ -18,6 +18,7 @@
   <td class="timestamp">{{ $post ->created_at}}</td>
 
 <!-- 編集ボタン -->
+@auth
   <td>
     <button class="modalopen" data-target="editModal{{ $post-> id}}" data-postid="{{ $post->id }}">
       <img src="images/edit.png" alt="編集">
@@ -28,6 +29,7 @@
   <td><a class="btn-danger" href="/post/{{ $post->id}}/delete" onclick="return confirm('このつぶやきを削除します。よろしいでしょうか？')">
   <img src="images/trash.png" alt="削除">
 </a></td>
+@endauth
 </tr>
  <!-- モーダル -->
 <div  id="editModal{{ $post-> id}}" class="modal">

@@ -25,7 +25,7 @@
 <body>
     <header>
         <div id ="menu">
-        <h1><a><img src="images/main_logo.png"></a></h1>
+        <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="page-header">
                 <div id="menu-prof">
                     <p>〇〇さん<img src="images/arrow.png"></p>

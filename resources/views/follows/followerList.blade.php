@@ -3,11 +3,13 @@
 @section('content')
 @foreach ($users as $user)
 <div class="container">
-    <ul class="followlist">
-      <li><a class="btn" href="/profile">
+    <div class="userlist">
+      <a class="btn" href="/profile">
       <img src="images/{{ $user-> images }}" alt="アイコン"></a>
-      {{ $user -> username }}</li>
-    </ul>
+      {{ $user -> username }}
+      <button>フォローする</button>
+      <button>フォローをはずす</button>
+    </div>
 </div>
 @endforeach
 @endsection

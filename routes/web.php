@@ -32,7 +32,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
-Route::get('/profile','UsersController@profile');
+Route::get('/profile','UsersController@profile')->name('users.profile');
 // 検索ページ
 Route::get('/search','UsersController@search')->name('users.search');
 
@@ -41,8 +41,11 @@ Route::get('/followerList','FollowsController@followerList');
 
 // 投稿内容を同一ページに表示するため
 Route::post('/post/create','PostsController@create');
+
+Route::group(['middleware' => 'auth'], function () {
 // 編集機能
 Route::get('/post/{id}/edit','PostsController@editform');
 Route::post('/post/edit','PostsController@edit');
 // delete機能
 Route::get('/post/{id}/delete','PostsController@delete');
+});

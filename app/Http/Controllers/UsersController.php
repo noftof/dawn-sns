@@ -22,5 +22,4 @@ class UsersController extends Controller
         // dd($users);
         return view('users.search',['users' => $users,'searchWord' => $search]);
     }
-
 }
