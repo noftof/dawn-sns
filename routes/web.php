@@ -33,6 +33,10 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile')->name('users.profile');
+// プロフィール編集
+Route::put('/profile','UsersController@profileUpdate')->name('profile_edit');
+// パスワード編集
+Route::put('/password/update','UsersController@passwordUpdate')->name('password_edit');
 // 検索ページ
 Route::get('/search','UsersController@search')->name('users.search');
 
