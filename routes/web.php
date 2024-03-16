@@ -33,6 +33,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile')->name('users.profile');
+Route::get('/otherProfile','UsersController@otherProfile');
 // プロフィール編集
 Route::put('/profile','UsersController@profileUpdate')->name('profile_edit');
 // パスワード編集

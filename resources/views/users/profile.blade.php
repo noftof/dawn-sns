@@ -5,7 +5,7 @@
     <div class="form-group">
 
       @auth
-      {!! Form::open(['url' => 'profile_edit' ,'method' => 'POST','files' => true]) !!}
+      {!! Form::open(['url' => 'profile' ,'method' => 'POST','files' => true]) !!}
       {!! Form::hidden('id',$user->id)!!}
       {!! Form::token() !!}
       <div class="form-group pt-1">

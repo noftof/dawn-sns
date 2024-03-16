@@ -16,18 +16,19 @@ class PostsController extends Controller
                     ->orderBy('posts.created_at','desc')
                     ->get();
                     // dd($posts);
+                    // $this -> edit();
         return view('posts.index',['posts'=>$posts]);
     }
-    public function create(Request $request)
-    {
-        $posts = $request->input('newPosts');
-        $user_id= Auth::id();
-        DB::table('posts')->insert([
-            'user_id'=>$user_id,
-            'posts' => $posts
-        ]);
-        return redirect('/top');
-    }
+    // public function create(Request $request)
+    // {
+    //     $posts = $request->input('newPosts');
+    //     $user_id= Auth::id();
+    //     DB::table('posts')->insert([
+    //         'user_id'=>$user_id,
+    //         'posts' => $posts
+    //     ]);
+    //     return redirect('/top');
+    // }
     // ログインユーザー確認
     public function __construct()
     {

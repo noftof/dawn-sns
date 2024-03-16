@@ -16,6 +16,7 @@ class UsersController extends Controller
     }
     // プロフィールの更新
     public function profileUpdate(Request $request, User $user){
+        dd($user);
         try{
             $user = Auth::user();
             $user->name = $request->input('name');
@@ -37,8 +38,10 @@ class UsersController extends Controller
         }
         return redirect()->route('password_edit')->with('msg_success','パスワードの更新が完了しました');
     }
-
-
+    // 相手のプロフィール
+    public function otherProfile(){
+        return view('users.otherProfile',['user' => $user]);
+    }
     //  検索
     public function search(Request $request){
         $search = $request->input('search');

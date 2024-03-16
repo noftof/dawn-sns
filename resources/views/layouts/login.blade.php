@@ -28,7 +28,7 @@
         <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="page-header">
                 <div id="menu-prof">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    <p>{{ Auth::user() -> username }}さん<img src="images/arrow.png"></p>
                 <div>
                 <ul class="main-nav">
                     <li><a href="/top">ホーム</a></li>
@@ -44,15 +44,15 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user() -> username }}さんの</p>
                 <div>
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p>{{ $follow_count }}名</p>
                 </div>
                 <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p>{{ $follower_count }}名</p>
                 </div>
                 <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
