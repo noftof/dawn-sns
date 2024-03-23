@@ -35,15 +35,20 @@ Route::get('/top','PostsController@index');
 Route::get('/profile','UsersController@profile')->name('users.profile');
 Route::get('/otherProfile','UsersController@otherProfile');
 // プロフィール編集
-Route::put('/profile','UsersController@profileUpdate')->name('profile_edit');
+Route::put('/profile','UsersController@profileUpdate');
 // パスワード編集
 Route::put('/password/update','UsersController@passwordUpdate')->name('password_edit');
 // 検索ページ
 Route::get('/search','UsersController@search')->name('users.search');
 
+// フォロー関係
 Route::get('/followList','FollowsController@followList');
 Route::get('/followerList','FollowsController@followerList');
 
+Route::group(['middleware' => 'auth'],function(){
+  Route::post('/follow/{user_id}',[ FollowsController::class, 'store']);
+  Route::post('/follow/{user_id}/destroy',[FollowsController::class, 'destroy']);
+});
 // 投稿内容を同一ページに表示するため
 Route::post('/post/create','PostsController@create');
 

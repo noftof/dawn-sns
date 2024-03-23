@@ -24,23 +24,13 @@ class FollowsController extends Controller
         return view('follows.followList',['users' => $users]);
     }
     // フォローする
-    public function follow(Request $request)
-    {
-        follow::firstOrCreate([
-            'follow' => $request->post_user,
-            'follower' => $request->auth_user
-        ]);
-        return true;
+    public function store($user_id){
+        Auth::user()->follows()->attach($user_id);
+        return;
     }
-    // フォロー解除
-    public function unfollow(Request $request)
-    {
-        $follow = follow::where('follow',$request->post_user)
-            ->where('follower',$request->auth_user)
-            ->first();
-        if($follow){
-            $follow->delete();
-            return false;
-        }
+    // フォロー外す
+    public function destroy($user_id){
+        Auth::user()->follows()-detach($user_id);
+        return;
     }
-}
+    }

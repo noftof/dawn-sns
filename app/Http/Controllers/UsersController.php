@@ -12,20 +12,22 @@ class UsersController extends Controller
     //プロフィール
     public function profile(){
         $user = Auth::user();
+        // dd($user);
         return view('users.profile',['user' => $user]);
     }
     // プロフィールの更新
     public function profileUpdate(Request $request, User $user){
-        dd($user);
+        // dd($user);
         try{
             $user = Auth::user();
             $user->name = $request->input('name');
             $user->email = $request->input('email');
             $user->save();
+            dd($user);
         } catch (\Exception $e){
             return back()->with('msg_error','プロフィールの更新に失敗しました')->withInput();
         }
-        return redirect()->route('users.profile_edit')->with('msg_success','プロフィールの更新が完了しました');
+        return redirect()->route('users.profile')->with('msg_success','プロフィールの更新が完了しました');
     }
     // パスワード編集
     public function passwordUpdate(){
@@ -36,7 +38,7 @@ class UsersController extends Controller
         } catch (\Exception $e){
             return back()->with('msg_error','パスワードの更新に失敗しました')->withInput();
         }
-        return redirect()->route('password_edit')->with('msg_success','パスワードの更新が完了しました');
+        return redirect()->route('users.profile')->with('msg_success','パスワードの更新が完了しました');
     }
     // 相手のプロフィール
     public function otherProfile(){

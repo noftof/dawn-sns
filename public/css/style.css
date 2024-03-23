@@ -63,9 +63,7 @@ header {
 
 }
 
-.user-icon {
-    display: flex;
-}
+
 
 /* btn */
 .btn {
@@ -76,18 +74,21 @@ header {
 .form-group {
     height: auto;
     width: 90%;
+    justify-content: center;
+}
+
+p.user-icon {
+    width: 55px;
+    height: 55px;
+}
+
+.post-form {
+    border-bottom: #3C4767;
 }
 
 .newposts {
     width: 90%;
     height: 80px;
-    border: none;
-}
-
-.form-group {
-    justify-content: center;
-    /* width: 100%;
-    height: 180px; */
 }
 
 /* postボタン */
@@ -96,11 +97,6 @@ button {
     border: none;
     background: transparent;
 }
-
-button.postbtn {
-    justify-content: left;
-}
-
 
 /* timeline */
 table {
@@ -130,10 +126,19 @@ td.username {
     vertical-align: text-top;
 }
 
+td.timeline-post {
+    font-size: 15px;
+    text-align: left;
+}
+
 td.timestamp {
     font-size: 12px;
     text-align: right;
     vertical-align: text-top;
+}
+
+tr.edit {
+    border: #3C4767;
 }
 
 /* delete */

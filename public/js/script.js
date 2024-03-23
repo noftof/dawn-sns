@@ -1,3 +1,4 @@
+// モーダル関係
 $(function () {
   $('.modalopen').each(function () {
     $(this).on('click', function () {
@@ -13,10 +14,6 @@ $(function () {
   //   return false;
   // });
 });
-
-
-
-
 // $(function () {
 //   $('.modalopen').on('click', function () {
 //     var postId = $(this).data('postid'); // data-postid属性からポストIDを取得
@@ -30,3 +27,18 @@ $(function () {
 //     $('.modal').fadeOut(); // モーダルを閉じる
 //   });
 // });
+
+// フォロー関係
+$(function follow(user_id) {
+  $.ajax({
+    headers: { "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content") },
+    url: '/follow/${user_id}',
+    type: "POST",
+  })
+    .done((data) => {
+      console.log(data);
+    })
+    .fail((data) => {
+      console.log(data);
+    });
+});

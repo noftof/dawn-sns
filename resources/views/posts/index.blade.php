@@ -1,14 +1,14 @@
 @extends('layouts.login')
 
 @section('content')
-    <table class='table table-hover'>
+<table class='table table-hover'>
     {!! Form::open(['url' => '/post/create']) !!}
-    <div class="form-group">
-    <p><a class="btn user-icon" href="/profile"><img src="images/{{ Auth::user() -> images }}" alt="アイコン"></a></p>
+    <div class="form-group post-form">
+    <p class="user-icon"><a class="btn user-icon" href="/profile"><img src="images/{{ Auth::user() -> images }}" alt="アイコン"></a></p>
     {!! Form::input('text', 'newPosts', null, ['required', 'class' => 'newposts', 'placeholder' => '何をつぶやこうか...?', 'autocomplete' => 'off']) !!}
-  </div>
   <button type="submit" class="postbtn"><img src="images/post.png" alt="Postする"></button>
     {!! Form::close() !!}
+</div>
 @foreach ($posts as $post)
 <tr>
   <td><a class="btn" href="/profile"><img src="images/{{ $post -> images }}" alt="アイコン"></a></td>
